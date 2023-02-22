@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.google.com/specimen/Hanken+Grotesk"
+    />
+
+    <title>Frontend Mentor | Results summary component</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      @font-face {
+        font-family: HankenGrotesk;
+        src: url(assets/fonts/HankenGrotesk-VariableFont_wght.ttf);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: HankenGrotesk;
+      }
+
+      body {
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: hsl(221, 100%, 96%);
+      }
+
+      p{
+        font-size: 18px;
+      }
+
+      .container {
+        max-width: 640px;
+        display: flex;
+      }
+
+      .overall-result {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: white;
+        max-width: 320px;
+        padding: 2rem;
+        border-radius: 1rem;
+        background: linear-gradient(
+          180deg,
+          hsl(252, 100%, 67%),
+          hsl(241, 81%, 54%)
+        );
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+      }
+
+      .circle {
+        width: 150px;
+        height: 150px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background: linear-gradient(
+          180deg,
+          hsla(256, 72%, 46%, 1),
+          hsla(241, 72%, 46%, 0)
+        );
+        border-radius: 50%;
+        padding: 1rem;
+        margin: 1em 0;
+      }
+
+      .obtained-marks {
+        font-size: 3rem;
+        font-weight: 800;
+      }
+
+      .maximum-marks{
+        font-weight: lighter;
+      }
+
+      .result-comment {
+        font-weight: bold;
+        margin-bottom: 1em;
+      }
+
+      .result-description{
+        text-align:center;
+        font-weight: 100;
+      }
+
+      .summary-card {
+        margin-left: -1.5rem;
+        z-index: -1;
+        width: 320px;
+        padding: 2rem;
+        padding-left: 3.5rem;
+        background-color: white;
+        border-radius: 1em;
+      }
+
+      .card-title {
+        margin-bottom: 1rem;
+        font-size: 18px;
+      }
+
+      .parameter-details {
+        margin-top: 1rem;
+        padding: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .reaction-details{
+        border-radius: 0.5em;
+        background-color: hsla(0, 100%, 67%, 0.1);
+      }
+
+      .memory-details{
+        border-radius: 0.5em;
+        background-color: hsla(39, 100%, 56%, 0.1);
+      }
+
+      .verbal-details{
+        border-radius: 0.5em;
+        background-color: hsla(166, 100%, 37%, 0.1);
+      }
+
+      .visual-details{
+        border-radius: 0.5em;
+        background-color: hsla(234, 85%, 45%, 0.1);
+      }
+      .parameter-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+      }
+
+      .out-of{
+        color: hsla(0, 0%, 0%, 0.6);
+      }
+      .parameter-name{
+        margin-left: 0.5em;
+        font-weight: bolder;
+      }
+
+      .parameter-reaction{
+        color: hsl(0, 100%, 67%);
+      }
+
+      .parameter-memory{
+        color: hsl(39, 100%, 56%);
+      }
+
+      .parameter-verbal{
+        color: hsl(166, 100%, 37%);
+      }
+
+      .parameter-visual{
+        color: hsl(234, 85%, 45%);
+      }
+
+      .btn-dark {
+        width: 100%;
+        color: hsl(0, 0%, 100%);
+        border-radius: 1.5rem;
+        padding: 1rem;
+        border: none;
+        margin-top: 1rem;
+        background-color: hsl(224, 30%, 27%);
+      }
+
+
+      @media (max-width: 640px) {
+        .container{
+          width: 320px;
+          flex-direction: column;
+          justify-content: center;
+          height: 100vh;
+        }
+
+        .overall-result{
+          border-radius: 0 0 1em 1em;
+        }
+        .summary-card{
+          padding: 2rem;
+          margin-left: 0;
+          border-radius: 0 0 1em 1em;
+          margin-top: -1em;
+          padding-top: 3rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <div class="overall-result">
+        <p style="font-weight:400">Your Result</p>
+
+        <div class="circle">
+          <p class="obtained-marks">76</p>
+          <p class="maximum-marks">of 100</p>
+        </div>
+
+        <p class="result-comment">Great</p>
+        <p class="result-description">
+          You scored higher than 65% of the people who have taken these tests.
+        </p>
+      </div>
+
+      <div class="summary-card">
+        <h1 class="card-title">Summary</h1>
+
+        <div class="parameter-details reaction-details">
+          <div class="parameter-container">
+            <img src="assets/images/icon-reaction.svg" alt="reaction icon" />
+            <p class="parameter-name parameter-reaction">Reaction</p>
+          </div>
+          <div class="score">80<span class="out-of"> / 100</span></div>
+        </div>
+
+        <div class="parameter-details memory-details">
+          <div class="parameter-container">
+              <img src="assets/images/icon-memory.svg" alt="memory icon" />
+              <p class="parameter-name parameter-memory">Memory</span>
+          </div>
+          <div class="score">92<span class="out-of"> / 100</span></div>
+        </div>
+
+        <div class="parameter-details verbal-details">
+          <div class="parameter-container">
+              <img src="assets/images/icon-verbal.svg" alt="verbal icon" />
+            <p class="parameter-name parameter-verbal">Verbal</p>
+          </div>
+          <div class="score">61<span class="out-of"> / 100</span></div>
+        </div>
+
+        <div class="parameter-details visual-details">
+          <div class="parameter-container">
+              <img src="assets/images/icon-visual.svg" alt="visual icon" />
+              <p class="parameter-name parameter-visual">Visual</p>
+          </div>
+          <div class="score">72<span class="out-of"> / 100</span></div>
+        </div>
+
+        <button class="btn-dark">Continue</button>
+      </div>
+    </main>
+  </body>
+</html>
